@@ -1,24 +1,36 @@
-Optimised 3. Download Download optimised SVG code Or copy code below
 <svg xmlns="http://www.w3.org/2000/svg" width="210" height="297" viewBox="0 0 744.1 1052.4">
   <style>
-    .a {
+    .dashes {
       fill: #4d4d4d;
       stroke-width: 3;
       stroke: #000;
     }
+
+    .temperature {
+      -webkit-backface-visibility: hidden;
+      transition: all .3s ease;
+    }
   </style>
-  <circle cx="365.7" cy="780.1" r="94.3" style="fill:#f00;stroke-width:4;stroke:#000" />
-  <path d="m304.6 707.4 0-581.8c0 0-8.2-71.7 62.8-69.9 62.9 1.6 57.9 68.1 57.9 68.1L426 706.6Z" style="fill:none;stroke-width:4;stroke:#000" />
-  <rect width="117.6" height="40" x="306.6" y="679.8" style="fill:#f00;stroke-width:4" />
-  <path d="m309.6 834.6c0 0-24-15.9-24.3-50.2-0.3-32.2 24.3-51.4 24.3-51.4 0 0-10.6 11-9 51.4 1.5 38.2 9 50.2 9 50.2z" fill="#fff" />
-  <path d="m465.6 679.9c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 617.2c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 428.9c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 491.7c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 554.4c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 366.1c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 177.9c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 240.6c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 303.4c62.9 0 62.9 0 62.9 0" class="" />
-  <path d="m465.6 115.1c62.9 0 62.9 0 62.9 0" class="" />
+  <circle class="bulb" cx="365.7" cy="780.1" r="94.3" style="fill:#f00;stroke-width:4;stroke:#000" />
+  <path class="outline" d="m304.6 707.4 0-581.8c0 0-8.2-71.7 62.8-69.9 62.9 1.6 57.9 68.1 57.9 68.1L426 706.6Z" style="fill:none;stroke-width:4;stroke:#000" />
+  <rect class="mask" width="117.6" height="40" x="306.6" y="668.8" style="fill:#fff;stroke-width:4" />
+  <rect class="temperature" width="117.6" height={{thermHeight}} x="306.6" y="710" style="fill:#f00;stroke-width:4" transform="rotate(180 365.4 710)" />
+  <path
+    class="shine"
+     style="stroke:#ffffff;stroke-width:10;stroke-linecap:round"
+     d="m 317.14286,119.04307 0,578.06698"
+     id="path4283"/>
+  <path class="shine" d="m309.6 834.6c0 0-24-15.9-24.3-50.2-0.3-32.2 24.3-51.4 24.3-51.4 0 0-10.6 11-9 51.4 1.5 38.2 9 50.2 9 50.2z" fill="#fff" />
+  <path class="dashes" d="m465.6 679.9c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 617.2c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 428.9c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 491.7c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 554.4c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 366.1c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 177.9c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 240.6c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 303.4c62.9 0 62.9 0 62.9 0" />
+  <path class="dashes" d="m465.6 115.1c62.9 0 62.9 0 62.9 0" />
 </svg>
+<p>Pixels: {{input type="number" value=thermHeight min="0" max="600" step="10"}}</p>
+<p>Percentage: {{input type="number" value=thermHeightPercent min="0" max="600"}}</p>
