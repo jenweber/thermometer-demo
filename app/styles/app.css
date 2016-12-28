@@ -1,4 +1,8 @@
-input, p {
+.fundraising-input, .fundraising-input input {
   font-size: 40px;
   font-family: sans-serif;
+}
+
+.thermometer-svg {
+  width: 30%;
 }
