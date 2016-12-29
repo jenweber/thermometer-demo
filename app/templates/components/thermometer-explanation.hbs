@@ -1,0 +1,91 @@
+<h2>How to make a Thermometer in Ember</h2>
+by <a href="www.github.com/jenweber">Jen Weber</a>
+<hr>
+<h3>Make a simple SVG</h3>
+<div>You can use a program like Adobe Illustrator or Inkscape.
+This thermometer is made of basic shapes layered in a specific order:
+</div>
+<div class="left-column">
+  <ol>
+    <li>a circle</li>
+    <li>the tube of the thermometer</li>
+    <li>a white rectangle mask to hide the top of the circle and bottom border of the tube when the thermometer level is zero</li>
+    <li>a red rectangle that shows thermometer level</li>
+    <li>some accents like tick marks and reflections</li>
+  </ol>
+</div>
+<div class="right-column">
+<svg xmlns="http://www.w3.org/2000/svg" width="30%" height="100%" viewBox="-100 50 900 650.4">
+<style>
+.a{
+  fill:#f00;
+  stroke-width:3;
+  stroke:#000;
+}
+.b{
+  fill:none;
+  stroke-width:3;
+  stroke:#000;
+}
+.c{
+  fill:#fff;
+  stroke-width:6;
+}
+.d{
+  fill:#4d4d4d;
+  stroke-width:3;
+  stroke:#000;
+}
+</style>
+<circle cx="40.7" cy="598.9" r="69.1" class="a"/>
+<path d="m-4.7 546.3 0-426.4c0 0-6-52.6 46-51.2 46.1 1.2 42.4 49.9 42.4 49.9l0.5 427.2z" class="b"/>
+<circle cx="218.9" cy="601.1" r="69.1" class="a"/>
+<path d="m173.4 546.5 0-426.4c0 0-6-52.6 46-51.2 46.1 1.2 42.4 49.9 42.4 49.9l0.5 427.2z" class="b"/>
+<rect width="83.2" height="36.8" x="175.2" y="514" style="fill:#fff;stroke-width:6;stroke:#808080"/>
+<circle cx="390.3" cy="603.9" r="69.1" class="a"/>
+<path d="m344.8 549.4 0-426.4c0 0-6-52.6 46-51.2 46.1 1.2 42.4 49.9 42.4 49.9l0.5 427.2z" class="b"/>
+<rect width="86" height="37" x="346.3" y="514.7" class="c"/>
+<circle cx="554" cy="599" r="69.1" class="a"/>
+<path d="m508.6 544.5 0-426.4c0 0-6-52.6 46-51.2 46.1 1.2 42.4 49.9 42.4 49.9l0.5 427.2z" class="b"/>
+<rect width="86" height="37" x="510.1" y="509.9" class="c"/>
+<rect width="75.2" height="335.8" x="515.4" y="212.7" style="fill:#f00;stroke-width:10;stroke:#800000"/>
+<circle cx="728.3" cy="604.7" r="70.5" class="a"/>
+<path d="m682.6 550.2 0-435.3c0 0-6.1-53.7 47-52.3 47.1 1.2 43.3 50.9 43.3 50.9l0.6 436.1z" class="b"/>
+<rect width="88" height="357.9" x="684.1" y="201.6" style="fill:#f00;stroke-width:4"/>
+<path d="m686.3 645.5c0 0-18-11.9-18.2-37.6-0.2-24.1 18.2-38.4 18.2-38.4 0 0-7.9 8.2-6.8 38.4 1.1 28.6 6.8 37.6 6.8 37.6z" fill="#fff"/>
+<path
+style="stroke:#ffffff;stroke-width:7.10076761;stroke-linecap:round;"
+d="m 691.96309,110.05949 0,432.51621"
+/>
+<g transform="matrix(0.74821123 0 0 0.74821123 400.80203 20.990128)">
+  <path d="m465.6 679.9c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 617.2c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 428.9c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 491.7c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 554.4c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 366.1c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 177.9c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 240.6c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 303.4c62.9 0 62.9 0 62.9 0" class="d"/>
+  <path d="m465.6 115.1c62.9 0 62.9 0 62.9 0" class="d"/>
+</g>
+</svg>
+</div>
+
+<hr>
+<h3>Use a variable for the height</h3>
+The thermometer level is a rectangle whose height is an Ember object called thermHeight. Adding to height would make the rectangle longer instead of taller, so to fix this, we have to rotate it 180 degrees on its bottom center axis using transform and rotate.
+  {{code-snippet name="thermometer-element.hbs"}}
+<hr>
+<h3>Bind the height to the form field</h3>
+If we type a number into the input form, it's saved to thermHeight, so the height of the rectangle should change too:
+  {{code-snippet name="thermometer-input.hbs"}}
+<hr>
+<h3>Set a default height</h3>
+It's best if the SVG height is always a number, so let's set it to zero as a default.
+  {{code-snippet name="thermometer-js.hbs"}}
+<hr>
+<h3>Add animations</h3>
+SVG styling often looks very similar to CSS. Remember to include "SVG" in your search terms if something isn't working how you expect.
+  {{code-snippet name="thermometer-style.hbs"}}
+<hr>
